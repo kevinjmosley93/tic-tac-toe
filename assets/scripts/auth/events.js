@@ -17,6 +17,12 @@ const signInClick = (event) => {
     api.signIn(data).then(ui.signInPass).catch(ui.signUpFail)
 
 }
+const signOutClick = (event) => {
+    event.preventDefault()
+    api.signOut(data).then(ui.signOutPass).catch(ui.signOutFail)
+
+}
+
 
 const changePasswordClick = (event) => {
     event.preventDefault()
@@ -27,8 +33,10 @@ const changePasswordClick = (event) => {
 }
 
 
+
   module.exports = {
       signUpClick,
       signInClick,
+      signOutClick,
       changePasswordClick
   }

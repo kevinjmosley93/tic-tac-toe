@@ -15,12 +15,23 @@ const signInPass = (res) => {
     $('#sign-in-form').trigger("reset")
     $('#sign-in-form').hide()
     $('#change-password-form').show()
+    $('#board').show()
 }
+const signOutPass = (res) => {
+    store.user = res.user
+    $('#message').text(`${res.user.email} has signed out!`)
+    $('#change-password-form').hide()
+    $('#board').hide()
+    $('#sign-in-form').show()
+  }
 
 const onChangePasswordPass = () => {
     $('#message').text('Changed password successfully')
 }
 const signUpFail = (res) => {
+    $('#message').text(`Opps, looks like something went wrong ${res.user.email}! Please try again`)
+}
+const signOutFail = (res) => {
     $('#message').text(`Opps, looks like something went wrong ${res.user.email}! Please try again`)
 }
 const onChangePasswordFail = (err) => {
@@ -30,7 +41,9 @@ const onChangePasswordFail = (err) => {
 module.exports = {
     signUpPass,
     signInPass,
+    signOutPass,
     onChangePasswordPass,
     onChangePasswordFail,
-    signUpFail
+    signUpFail,
+    signOutFail
 }

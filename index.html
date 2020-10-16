@@ -14,26 +14,26 @@
       <h1 class="text-center">Tic-tac-toe</h1>
       <h1 class="text-center" id="message"></h1>
       <!-- Sign Up Form -->
-      <form id="sign-up-form" class="container border border-info rounded bg-info">
+      <form id="sign-up-form" class="container border border-info rounded bg-info shadow">
           <h2 class="text-center">Sign-up to Play</h2>
           <!-- Email -->
           <div id="form-container" class="container">
             <div class="form-group">
               <label for="sign-up-email">Email:</label>
-              <input class="form-control" type="email" name="credentials[email]" id="sign-up-email" placeholder="Exam@example.com" required>
+              <input class="form-control shadow-lg" type="email" name="credentials[email]" id="sign-up-email" placeholder="Exam@example.com" required>
             </div>
               <!-- Password -->
             <div id="form-group">
               <label for="sign-up-password">Password:</label>
-              <input class="form-control" id="sign-up-password" type="password" name="credentials[password]" placeholder="Password" required>
+              <input class="form-control shadow-lg" id="sign-up-password" type="password" name="credentials[password]" placeholder="Password" required>
             </div>
               <!-- ReEnter Password -->
             <div id="form-group">
               <label for="sign-up-password_confirm">Password Confirm:</label>
-              <input class="form-control" id="sign-up-password_confirm" type="password" name="credentials[password_confirmation]"placeholder="Confirm Password" required>
+              <input class="form-control shadow-lg" id="sign-up-password_confirm" type="password" name="credentials[password_confirmation]"placeholder="Confirm Password" required>
             </div>
             <br>
-            <input class="btn btn-info float-right" type="submit" value="SIGN UP">
+            <input class="btn btn-info float-right shadow-lg" type="submit" value="SIGN UP">
           </div>
       </form>
       <!-- Sign In Form -->
@@ -54,15 +54,32 @@
           <input class="btn btn-info float-right" type="submit" value="SIGN IN">
         </div>
       </form>
+      <!-- Game Board -->
+      <div id="board" class="container rounded board shadow-lg">
+        <h1 id="game-message" class="game-message"></h1>
+        <div class="row">
+          <div id="0" class="col shadow-lg text-center">+</div>
+          <div id="1" class="col shadow-lg text-center">+</div>
+          <div id="2" class="col shadow-lg text-center">+</div>
+        </div>
+        <div class="row">
+          <div id="3" class="col shadow-lg text-center">+</div>
+          <div id="4" class="col shadow-lg text-center">+</div>
+          <div id="5" class="col shadow-lg text-center">+</div>
+        </div>
+        <div class="row">
+          <div id="6" class="col shadow-lg text-center">+</div>
+          <div id="7" class="col shadow-lg text-center">+</div>
+          <div id="8" class="col shadow-lg text-center">+</div>
+        </div>
+        <input id='sign-out' class="btn float left" type='submit' value='SIGN OUT'>
+        <input class="btn reset-btn float-right" type='submit' value='RESET BOARD'>
+      </div>
       <!-- Change Password -->
       <form id="change-password-form" class="container">
-        <input class="form-control" type="password" name="passwords[old]" placeholder="Old Password">
-        <input class="form-control" type="password" name="passwords[new]" placeholder="New Password">
-        <input class="btn btn-info" type="submit" value="CHANGE PASSWORD">
-        <!-- Sign Out -->
-        <form id='sign-out'>
-          <input class="btn btn-info float-right" type='submit' value='SIGN OUT'>
-        </form>  
+      <input class="form-control" type="password" name="passwords[old]" placeholder="Old Password">
+      <input class="form-control" type="password" name="passwords[new]" placeholder="New Password">
+      <input class="btn btn-info" type="submit" value="CHANGE PASSWORD"> 
       </form>
     </body>
 
