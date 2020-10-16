@@ -1,17 +1,36 @@
 const store = require('./../store')
 
 const signUpPass = (res) => {
-    $('#message').text(`Your all signed up ${res.user.email}! Let's Play!!!`),
+    $('#message').text(`Thanks for signing up ${res.user.email}! Sign In to Play`),
     $('#sign-up-form').trigger('reset')
+    $('#sign-up-form').hide()
+    $('#sign-in-form').show()
+
     console.log('this is respose', res)
 }
 
+const signInPass = (res) => {
+    store.user = res.user
+    $('#message').text(`${res.user.email} Signed In!`)
+    $('#sign-in-form').trigger("reset")
+    $('#sign-in-form').hide()
+    $('#change-password-form').show()
+}
+
+const onChangePasswordPass = () => {
+    $('#message').text('Changed password successfully')
+}
 const signUpFail = (res) => {
     $('#message').text(`Opps, looks like something went wrong ${res.user.email}! Please try again`)
-    console.log('this is respose', res)
 }
+const onChangePasswordFail = (err) => {
+    $('#message').text('Error on change password')
+  }
 
 module.exports = {
     signUpPass,
+    signInPass,
+    onChangePasswordPass,
+    onChangePasswordFail,
     signUpFail
 }
