@@ -19,7 +19,7 @@ const signInClick = (event) => {
 }
 const signOutClick = (event) => {
     event.preventDefault()
-    api.signOut(data).then(ui.signOutPass).catch(ui.signOutFail)
+    api.signOut().then(ui.signOutPass).catch(ui.signOutFail)
 
 }
 

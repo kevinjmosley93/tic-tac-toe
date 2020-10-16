@@ -9,14 +9,14 @@ const boardEvents = require('./auth/board-events')
 // require('./example')
 
 $(() => {
-  $('#sign-up-form').hide()
+  $('#sign-up-form').show()
   $('#sign-in-form').show()
   $('#change-password-form').hide()
   $('#board').hide()
   $('#sign-up-form').on('submit', authEvents.signUpClick)
   $('#sign-in-form').on('submit', authEvents.signInClick)
-  $('#change-password-form').on('submit', authEvents.onChangePassword)
-  $('#sign-out').on('click', authEvents.signOutClick)
+  $('#change-password-form').on('submit', authEvents.changePasswordClick)
+  $('#sign-out').on('submit', authEvents.signOutClick)
   $('.reset-btn').on('click', boardEvents.resetBtnClick)
 
   $('#0').on('click', boardEvents.zeroBtn)

@@ -14,18 +14,22 @@ const signInPass = (res) => {
     $('#message').text(`${res.user.email} Signed In!`)
     $('#sign-in-form').trigger("reset")
     $('#sign-in-form').hide()
+    $('#sign-up-form').hide()
     $('#change-password-form').show()
     $('#board').show()
 }
-const signOutPass = (res) => {
-    store.user = res.user
-    $('#message').text(`${res.user.email} has signed out!`)
+const signOutPass = () => {
+    store.user = null
+    $('#message').text('Thanks for playing')
     $('#change-password-form').hide()
     $('#board').hide()
     $('#sign-in-form').show()
   }
 
 const onChangePasswordPass = () => {
+    $('#change-password-form').hide()
+    $('#board').hide()
+    $('#sign-in-form').show()
     $('#message').text('Changed password successfully')
 }
 const signUpFail = (res) => {

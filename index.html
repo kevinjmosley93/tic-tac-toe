@@ -38,7 +38,7 @@
       </form>
       <!-- Sign In Form -->
       <form id="sign-in-form" class="container border border-info rounded bg-info">
-        <h2 class="text-center">Sign-In</h2>
+        <h2 class="text-center">Sign-In to Play</h2>
         <!-- Email -->
         <div id="form-container" class="container">
           <div class="form-group">
@@ -54,6 +54,7 @@
           <input class="btn btn-info float-right" type="submit" value="SIGN IN">
         </div>
       </form>
+
       <!-- Game Board -->
       <div id="board" class="container rounded board shadow-lg">
         <h1 id="game-message" class="game-message"></h1>
@@ -72,8 +73,11 @@
           <div id="7" class="col shadow-lg text-center">+</div>
           <div id="8" class="col shadow-lg text-center">+</div>
         </div>
-        <input id='sign-out' class="btn float left" type='submit' value='SIGN OUT'>
-        <input class="btn reset-btn float-right" type='submit' value='RESET BOARD'>
+        <!-- Sign Out & Reset -->
+        <form id='sign-out'>
+          <input  class="btn float left" type='submit' value='SIGN OUT'>
+          <input class="btn reset-btn float-right" type='click' value='RESET BOARD'>
+        </form>
       </div>
       <!-- Change Password -->
       <form id="change-password-form" class="container">

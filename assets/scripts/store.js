@@ -4,8 +4,8 @@ const store = {
     email: 'credentials[email]',
     password: 'credentials[password]',
     authorization: 'authorization[TOKEN]',
-    oldpw: 'passwords[oldpw]',
-    newpw: 'passwords[newpw]'
+    old: 'passwords[old]',
+    new: 'passwords[new]'
 }
 
 module.exports = store
