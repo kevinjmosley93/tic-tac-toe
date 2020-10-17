@@ -28,5 +28,4 @@ $(() => {
   $('#6').on('click', boardEvents.sixBtn)
   $('#7').on('click', boardEvents.sevenBtn)
   $('#8').on('click', boardEvents.eightBtn)
-  $('#9').on('click', boardEvents.nineBtn)
 })

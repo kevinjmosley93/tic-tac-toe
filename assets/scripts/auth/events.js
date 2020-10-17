@@ -28,7 +28,7 @@ const changePasswordClick = (event) => {
     event.preventDefault()
     const form = event.target
     const data = getFormInfo(form)
-    api.changePassword(data).then(ui.changePasswordPass).catch(ui.changePasswordFail)
+    api.changePassword(data).then(ui.onChangePasswordPass).catch(ui.onChangePasswordFail)
 
 }
 

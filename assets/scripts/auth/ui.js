@@ -29,6 +29,7 @@ const signOutPass = () => {
 const onChangePasswordPass = () => {
     $('#change-password-form').hide()
     $('#board').hide()
+    $('#change-password-form').trigger('reset')
     $('#sign-in-form').show()
     $('#message').text('Changed password successfully')
 }
