@@ -1,6 +1,6 @@
 const store = require('./../store')
 
-const gamePass = (res) => {
+const gamePass = () => {
     $('#message').text(`You are playing!`)
     $('#change-password-form').show()
     $('#board').show()

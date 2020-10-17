@@ -9,7 +9,7 @@ const boardEvents = require('./auth/board-events')
 // require('./example')
 
 $(() => {
-  $('#sign-up-form').hide()
+  $('#sign-up-form').show()
   $('#sign-in-form').show()
   $('#change-password-form').hide()
   $('#board').hide()
