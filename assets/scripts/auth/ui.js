@@ -15,8 +15,10 @@ const signInPass = (res) => {
     $('#sign-in-form').trigger("reset")
     $('#sign-in-form').hide()
     $('#sign-up-form').hide()
-    $('#change-password-form').show()
-    $('#board').show()
+    $('#change-password-form').hide()
+    $('#board').hide()
+    $('#game-index').show()
+
 }
 const signOutPass = () => {
     store.user = null

@@ -1,3 +1,16 @@
+const api = require("./api")
+const gameApi = require('./game-api')
+const gameUi = require('./game-ui')
+
+const getGameClick = (event) =>{
+    event.preventDefault()
+    gameApi.game().then(gameUi.gamePass).catch(gameUi.gameFail)
+}
+
+
+
+
+
 
 
 const zeroBtn = ()=>{
@@ -31,13 +44,14 @@ const nineBtn = ()=>{
     $('#9').text('')
 }
 
-
 const resetBtnClick = () => {
     $('.col').text('+');
 }
 
 
 module.exports = {
+    getGameClick,
+   
     resetBtnClick,
       zeroBtn,
       oneBtn,
