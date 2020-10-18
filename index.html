@@ -54,24 +54,29 @@
           <input class="btn btn-info float-right" type="submit" value="SIGN IN">
         </div>
       </form>
-      <button class="btn btn-block btn-info container " type="submit" id="game-index">Start New Game</button>
+      <!-- Create New Game -->
+      <button class="btn btn-block btn-info container " type="submit" id="game-start">Start New Game</button>
+      <!-- Game Index -->
+      <button class="btn btn-block btn-info container " type="submit" id="game-index">Game List</button>
+      <!-- Game Update -->
+      <button class="btn btn-block btn-info container " type="submit" id="game-update">Game Update</button>
       <!-- Game Board -->
       <div id="board" class="container rounded board shadow-lg">
         <h1 id="game-message" class="game-message"></h1>
         <div class="row">
-          <div id="0" class="col shadow-lg text-center">+</div>
-          <div id="1" class="col shadow-lg text-center">+</div>
-          <div id="2" class="col shadow-lg text-center">+</div>
+          <div data-col-index="0" id="0" class="col shadow-lg text-center">+</div>
+          <div data-col-index="1" id="1" class="col shadow-lg text-center">+</div>
+          <div data-col-index="2" id="2" class="col shadow-lg text-center">+</div>
         </div>
         <div class="row">
-          <div id="3" class="col shadow-lg text-center">+</div>
-          <div id="4" class="col shadow-lg text-center">+</div>
-          <div id="5" class="col shadow-lg text-center">+</div>
+          <div data-col-index="3" id="3" class="col shadow-lg text-center">+</div>
+          <div data-col-index="4" id="4" class="col shadow-lg text-center">+</div>
+          <div data-col-index="5" id="5" class="col shadow-lg text-center">+</div>
         </div>
         <div class="row">
-          <div id="6" class="col shadow-lg text-center">+</div>
-          <div id="7" class="col shadow-lg text-center">+</div>
-          <div id="8" class="col shadow-lg text-center">+</div>
+          <div data-col-index="6" id="6" class="col shadow-lg text-center">+</div>
+          <div data-col-index="7" id="7" class="col shadow-lg text-center">+</div>
+          <div data-col-index="8" id="8" class="col shadow-lg text-center">+</div>
         </div>
         <!-- Sign Out & Reset -->
         <form id='sign-out'>

@@ -1,16 +1,28 @@
 const store = require('./../store')
 
-const gamePass = () => {
-    $('#message').text(`You are playing!`)
+const gameStart = () => {
+    $('#message').text(`${store.user.email} is playing!`)
     $('#change-password-form').show()
     $('#board').show()
+    $('#game-start').hide()
     $('#game-index').hide()
+   
+}
+
+const gameList = () => {
+    $('#message').text(`This is your first game! ${store.user.email}`)
+    $('#change-password-form').show()
+    $('#board').show()
+    $('#game-start').hide()
+    $('#game-index').hide()
+   
 }
 
 const gameFail = (err) => {
     console.log('Error!!!!!!', err)
 }
 module.exports = {
-    gamePass,
+    gameStart,
+    gameList,
     gameFail
 }

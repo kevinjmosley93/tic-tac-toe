@@ -13,14 +13,16 @@ $(() => {
   $('#sign-in-form').show()
   $('#change-password-form').hide()
   $('#board').hide()
+  $('#game-start').hide()
   $('#game-index').hide()
   $('#sign-up-form').on('submit', authEvents.signUpClick)
   $('#sign-in-form').on('submit', authEvents.signInClick)
   $('#change-password-form').on('submit', authEvents.changePasswordClick)
   $('#sign-out').on('submit', authEvents.signOutClick)
   $('.reset-btn').on('click', boardEvents.resetBtnClick)
-  $('#game-index').on('click', boardEvents.getGameClick)
-
+  $('#game-start').on('click', boardEvents.startGameClick)
+  $('#game-index').on('click', boardEvents.listGameClick)
+  $('#game-update').on('click', boardEvents.updateGameClick)
 
   $('#0').on('click', boardEvents.zeroBtn)
   $('#1').on('click', boardEvents.oneBtn)

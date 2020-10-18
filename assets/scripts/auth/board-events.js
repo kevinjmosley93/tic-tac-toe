@@ -2,16 +2,27 @@ const api = require("./api")
 const gameApi = require('./game-api')
 const gameUi = require('./game-ui')
 
-const getGameClick = (event) =>{
+const startGameClick = (event) =>{
     event.preventDefault()
-    gameApi.game().then(gameUi.gamePass).catch(gameUi.gameFail)
+    gameApi.createGame().then(gameUi.gameStart).catch(gameUi.gameFail)
 }
+
+const listGameClick = (event) => {
+    event.preventDefault()
+    gameApi.listGame().then(gameUi.gameList).catch(gameUi.gameFail)
+}
+
+const X = 'X'
+const O = 'O'
+
+let turns = ['X','O']
+
 
 
 const zeroBtn = ()=>{
-    $('#0').text('X')
-    zeroBtnDiasable()
+    $('#0').text(X)
 }
+
 const oneBtn = ()=>{
     $('#1').text('')
 }
@@ -22,7 +33,7 @@ const threeBtn = ()=>{
     $('#3').text('')
 }
 const fourBtn = ()=>{
-    $('#4').text('')
+    $('#4').text()
 }
 const fiveBtn = ()=>{
     $('#5').text('')
@@ -102,7 +113,8 @@ const eightBtnDiasable = ()=>{
 
 
 module.exports = {
-    getGameClick,
+    startGameClick,
+    listGameClick,
    
     resetBtnClick,
       zeroBtn,

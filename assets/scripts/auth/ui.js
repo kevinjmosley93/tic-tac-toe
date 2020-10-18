@@ -1,12 +1,10 @@
 const store = require('./../store')
 
 const signUpPass = (res) => {
-    $('#message').text(`Thanks for signing up ${res.user.email}! Sign In to Play`),
+    $('#message').text(`Thanks for signing up ${res.user.email}! Sign In to Play`)
     $('#sign-up-form').trigger('reset')
     $('#sign-up-form').hide()
     $('#sign-in-form').show()
-
-    console.log('this is respose', res)
 }
 
 const signInPass = (res) => {
@@ -17,6 +15,7 @@ const signInPass = (res) => {
     $('#sign-up-form').hide()
     $('#change-password-form').hide()
     $('#board').hide()
+    $('#game-start').show()
     $('#game-index').show()
 
 }
