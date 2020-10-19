@@ -14,102 +14,179 @@ const listGameClick = (event) => {
 
 const X = 'X'
 const O = 'O'
-
-let turns = ['X','O']
+let xScore = 0
+let yScore = 0
+let ties = 0
+let turns = 1
 
 
 
 const zeroBtn = ()=>{
-    $('#0').text(X)
+    if (turns === 1) {
+        $('#0').text(X)
+        $('#0').addClass('X')
+        turns = 2
+    } else {
+        $('#0').text(O)
+        $('#0').addClass('O')
+        turns = 1
+    } 
+    if (turns === 1) {
+        $('#turn').text(X)
+    } else {
+        $('#turn').text(O)
+    }
+    
 }
 
+
 const oneBtn = ()=>{
-    $('#1').text('')
+    if (turns === 1) {
+        $('#1').text(X)
+        $('#1').addClass('X')
+        turns = 2
+    } else {
+        $('#1').text(O)
+        $('#1').addClass('O')
+        turns = 1
+    }
+    if (turns === 1) {
+        $('#turn').text(X)
+    } else {
+        $('#turn').text(O)
+    }
 }
 const twoBtn = ()=>{
-    $('#2').text('O').addClass('disabled')
+    if (turns === 1) {
+        $('#2').text(X)
+        $('#2').addClass('X')
+        turns = 2
+    } else {
+        $('#2').text(O)
+        $('#2').addClass('O')
+        turns = 1
+    }
+    if (turns === 1) {
+        $('#turn').text(X)
+    } else {
+        $('#turn').text(O)
+    }
 }
 const threeBtn = ()=>{
-    $('#3').text('')
+    if (turns === 1) {
+        $('#3').text(X)
+        $('#3').addClass('X')
+
+        turns = 2
+    } else {
+        $('#3').text(O)
+        $('#3').addClass('O')
+
+        turns = 1
+    }
+    if (turns === 1) {
+        $('#turn').text(X)
+    } else {
+        $('#turn').text(O)
+    }
 }
 const fourBtn = ()=>{
-    $('#4').text()
+    if (turns === 1) {
+        $('#4').text(X)
+        $('#4').addClass('X')
+        turns = 2
+    } else {
+        $('#4').text(O)
+        $('#4').addClass('O')
+        turns = 1
+    }
+    if (turns === 1) {
+        $('#turn').text(X)
+    } else {
+        $('#turn').text(O)
+    }
 }
 const fiveBtn = ()=>{
-    $('#5').text('')
+    if (turns === 1) {
+        $('#5').text(X)
+        $('#5').addClass('X')
+        turns = 2
+    } else {
+        $('#5').text(O)
+        $('#5').addClass('O')
+        turns = 1
+    }
+    if (turns === 1) {
+        $('#turn').text(X)
+    } else {
+        $('#turn').text(O)
+    }
 }
 const sixBtn = ()=>{
-    $('#6').text('')
+    if (turns === 1) {
+        $('#6').text(X)
+        $('#6').addClass('X')
+        turns = 2
+    } else {
+        $('#6').text(O)
+        $('#6').addClass('O')
+        turns = 1
+    }
+    if (turns === 1) {
+        $('#turn').text(X)
+    } else {
+        $('#turn').text(O)
+    }
 }
 const sevenBtn = ()=>{
-    $('#7').text('')
+    if (turns === 1) {
+        $('#7').text(X)
+        $('#7').addClass('X')
+        turns = 2
+    } else {
+        $('#7').text(O)
+        $('#7').addClass('O')
+        turns = 1
+    }
+    if (turns === 1) {
+        $('#turn').text(X)
+    } else {
+        $('#turn').text(O)
+    }
 }
 const eightBtn = ()=>{
-    $('#8').text('')
+    if (turns === 1) {
+        $('#8').text(X)
+        $('#8').addClass('X')
+        turns = 2
+    } else {
+        $('#8').text(O)
+        $('#8').addClass('O')
+        turns = 1
+    }
+    if (turns === 1) {
+        $('#turn').text(X)
+    } else {
+        $('#turn').text(O)
+    }
 }
 
 const resetBtnClick = () => {
-    $('.col').text('+').removeClass('disabled')
+    $('.col').text('+').removeClass('X O')
 }
 
-const xWin = () => {
-    if (zeroBtn.hasClass('X') && oneBtn.hasClass('X') && twoBtn.hasClass('X') || threeBtn.hasClass('X') && fourBtn.hasClass('X') && fiveBtn.hasClass('X') || sixBtn.hasClass('X') && sevenBtn.hasClass('X') && eightBtn.hasClass('X') || zeroBtn.hasClass('X') && threeBtn.hasClass('X') && sixBtn.hasClass('X') || oneBtn.hasClass('X') && fourBtn.hasClass('X') && sevenBtn.hasClass('X') || twoBtn.hasClass('X') && fiveBtn.hasClass('X') && eightBtn.hasClass('X') || zeroBtn.hasClass('X') && fiveBtn.hasClass('X') && eightBtn.hasClass('X') || twoBtn.hasClass('X') && fourBtn.hasClass('X') && sixBtn.hasClass('X')) {
-      $('#game-message').text('X is the Winner!');
-      $('#game-message').fadeIn()  
-    }
-}
-const oWin = () => {
-    if (zeroBtn.hasClass('O') && oneBtn.hasClass('O') && twoBtn.hasClass('O') || threeBtn.hasClass('O') && fourBtn.hasClass('O') && fiveBtn.hasClass('O') || sixBtn.hasClass('O') && sevenBtn.hasClass('O') && eightBtn.hasClass('O') || zeroBtn.hasClass('O') && threeBtn.hasClass('O') && sixBtn.hasClass('O') || oneBtn.hasClass('O') && fourBtn.hasClass('O') && sevenBtn.hasClass('O') || twoBtn.hasClass('O') && fiveBtn.hasClass('O') && eightBtn.hasClass('O') || zeroBtn.hasClass('O') && fiveBtn.hasClass('O') && eightBtn.hasClass('O') || twoBtn.hasClass('O') && fourBtn.hasClass('O') && sixBtn.hasClass('O')) {
+const checkWin = () => {
+    if ($('#0').hasClass('X') && $('#1').hasClass('X') && $('#2').hasClass('X') || $('#3').hasClass('X') && $('#4').hasClass('X') && $('#5').hasClass('X') || $('#6').hasClass('X') && $('#7').hasClass('X') && $('#8').hasClass('X') || $('#0').hasClass('X') && $('#3').hasClass('X') && $('#6').hasClass('X') || $('#1').hasClass('X') && $('#4').hasClass('X') && $('#7').hasClass('X') || $('#2').hasClass('X') && $('#5').hasClass('X') && $('#8').hasClass('X') || $('#0').hasClass('X') && $('#5').hasClass('X') && $('#8').hasClass('X') || $('#2').hasClass('X') && $('#4').hasClass('X') && $('#6').hasClass('X')) 
+    {
+        $('#game-message').text('X is the Winner!')
+        $('#game-message').fadeIn()  
+    } else if ($('#0').hasClass('O') && $('#1').hasClass('O') && $('#2').hasClass('O') || $('#3').hasClass('O') && $('#4').hasClass('O') && $('#5').hasClass('O') || $('#6').hasClass('O') && $('#7').hasClass('O') && $('#8').hasClass('O') || $('#0').hasClass('O') && $('#3').hasClass('O') && $('#6').hasClass('O') || $('#1').hasClass('O') && $('#4').hasClass('O') && $('#7').hasClass('O') || $('#2').hasClass('O') && $('#5').hasClass('O') && $('#8').hasClass('O') || $('#0').hasClass('O') && $('#5').hasClass('O') && $('#8').hasClass('O') || $('#2').hasClass('O') && $('#4').hasClass('O') && $('#6').hasClass('O')) 
+    {
         $('#game-message').text('O is the Winner!');
         $('#game-message').fadeIn()
-      }
-}
-const zeroBtnDiasable = ()=>{
-    if ($('#0') === 'X' || 'O') {
-        $('#0').addClass('disabled')
-    }
+    } 
 }
 
-const oneBtnDiasable = ()=>{
-    if ($('#1') === 'X' || 'O') {
-        $('#1').addClass('disabled')
-    }
-}
-const twoBtnDiasable = ()=>{
-    if ($('#2') === 'X' || 'O') {
-        $('#2').addClass('disabled')
-    }
-}
-const threeBtnDiasable = ()=>{
-    if ($('#3') === 'X' || 'O') {
-        $('#3').addClass('disabled')
-    }
-}
-const fourBtnDiasable = ()=>{
-    if ($('#4') === 'X' || 'O') {
-        $('#4').addClass('disabled')
-    }
-}
-const fiveBtnDiasable = ()=>{
-    if ($('#5') === 'X' || 'O') {
-        $('#5').addClass('disabled')
-    }
-}
-const sixBtnDiasable = ()=>{
-    if ($('#6') === 'X' || 'O') {
-        $('#6').addClass('disabled')
-    }
-}
-const sevenBtnDiasable = ()=>{
-    if ($('#7') === 'X' || 'O') {
-        $('#7').addClass('disabled')
-    }
-}
-const eightBtnDiasable = ()=>{
-    if ($('#8') === 'X' || 'O') {
-        $('#8').addClass('disabled')
-    }
-}
 
 
 module.exports = {

@@ -9,10 +9,10 @@ const boardEvents = require('./auth/board-events')
 // require('./example')
 
 $(() => {
-  $('#sign-up-form').show()
-  $('#sign-in-form').show()
+  $('#sign-up-form').hide()
+  $('#sign-in-form').hide()
   $('#change-password-form').hide()
-  $('#board').hide()
+  $('#board').show()
   $('#game-start').hide()
   $('#game-index').hide()
   $('#sign-up-form').on('submit', authEvents.signUpClick)
@@ -24,6 +24,7 @@ $(() => {
   $('#game-index').on('click', boardEvents.listGameClick)
   $('#game-update').on('click', boardEvents.updateGameClick)
 
+  
   $('#0').on('click', boardEvents.zeroBtn)
   $('#1').on('click', boardEvents.oneBtn)
   $('#2').on('click', boardEvents.twoBtn)
