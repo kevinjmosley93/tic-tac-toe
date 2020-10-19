@@ -1,3 +1,4 @@
+const getFormInfo = require("../../../lib/get-form-fields")
 const api = require("./api")
 const gameApi = require('./game-api')
 const gameUi = require('./game-ui')
@@ -11,6 +12,14 @@ const listGameClick = (event) => {
     event.preventDefault()
     gameApi.listGame().then(gameUi.gameList).catch(gameUi.gameFail)
 }
+
+const updateGameClick = (event) => {
+    event.preventDefault()
+    const form = event.target
+    const data = getFormInfo(form)
+    gameApi.updateGame(data).then(gameUi.gameUpdate).catch(gameUi.gameFail)
+}
+
 
 const X = 'X'
 const O = 'O'
@@ -219,7 +228,7 @@ const resetBtnClick = () => {
 module.exports = {
     startGameClick,
     listGameClick,
-   
+    updateGameClick,
     resetBtnClick,
       zeroBtn,
       oneBtn,

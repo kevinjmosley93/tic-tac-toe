@@ -16,8 +16,6 @@ const signInPass = (res) => {
     $('#change-password-form').hide()
     $('#board').hide()
     $('#game-start').show()
-    $('#game-index').show()
-
 }
 const signOutPass = () => {
     store.user = null
@@ -25,6 +23,8 @@ const signOutPass = () => {
     $('#change-password-form').hide()
     $('#board').hide()
     $('#sign-in-form').show()
+    $('#game-update').hide()
+    $('#game-list').hide()
   }
 
 const onChangePasswordPass = () => {

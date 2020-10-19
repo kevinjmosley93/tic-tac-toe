@@ -5,7 +5,8 @@ const gameStart = () => {
     $('#change-password-form').show()
     $('#board').show()
     $('#game-start').hide()
-    $('#game-index').hide()
+    $('#game-index').show()
+    $('#game-update').show()
    
 }
 
@@ -15,8 +16,17 @@ const gameList = () => {
     $('#board').show()
     $('#game-start').hide()
     $('#game-index').hide()
+    $('#game-update').show()
    
 }
+
+const gameUpdate = () => {
+    $('#message').text(`Hey ${store.user.email}, these are your games`)
+    $('#change-password-form').show()
+    $('#board').show()
+
+}
+
 
 const gameFail = (err) => {
     console.log('Error!!!!!!', err)
@@ -24,5 +34,6 @@ const gameFail = (err) => {
 module.exports = {
     gameStart,
     gameList,
+    gameUpdate,
     gameFail
 }

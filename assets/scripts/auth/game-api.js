@@ -24,15 +24,23 @@ const listGame = () => {
 
 const updateGame = (data) => {
     return $.ajax({
-      url: config.apiUrl + '/games/' + data.game.id,
+      url: config.apiUrl + '/games/' + store.game.id,
       method: 'PATCH',
       headers: {
         Authorization:
         `Bearer ${store.user.token}`
     },
-      data: data
-    })
-  }
+      data: {
+        "game": {
+          "cell": {
+            "index": 0,
+            "value": "x"
+          },
+          "over": false
+        }
+      }
+    })   
+}
 
 module.exports = {
     createGame,
