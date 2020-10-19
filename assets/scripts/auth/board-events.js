@@ -15,9 +15,27 @@ const listGameClick = (event) => {
 const X = 'X'
 const O = 'O'
 let xScore = 0
-let yScore = 0
+let oScore = 0
 let ties = 0
 let turns = 1
+
+const xWin = () => {
+    if ($('#0').hasClass('X') && $('#1').hasClass('X') && $('#2').hasClass('X') || $('#3').hasClass('X') && $('#4').hasClass('X') && $('#5').hasClass('X') || $('#6').hasClass('X') && $('#7').hasClass('X') && $('#8').hasClass('X') || $('#0').hasClass('X') && $('#3').hasClass('X') && $('#6').hasClass('X') || $('#1').hasClass('X') && $('#4').hasClass('X') && $('#7').hasClass('X') || $('#2').hasClass('X') && $('#5').hasClass('X') && $('#8').hasClass('X') || $('#0').hasClass('X') && $('#4').hasClass('X') && $('#8').hasClass('X') || $('#2').hasClass('X') && $('#4').hasClass('X') && $('#6').hasClass('X')) 
+    {
+        $('#game-message').text('X is the Winner!')
+        $('#game-message').fadeIn()
+        
+        
+    } 
+}
+    
+const oWin = () => {
+    if ($('#0').hasClass('O') && $('#1').hasClass('O') && $('#2').hasClass('O') || $('#3').hasClass('O') && $('#4').hasClass('O') && $('#5').hasClass('O') || $('#6').hasClass('O') && $('#7').hasClass('O') && $('#8').hasClass('O') || $('#0').hasClass('O') && $('#3').hasClass('O') && $('#6').hasClass('O') || $('#1').hasClass('O') && $('#4').hasClass('O') && $('#7').hasClass('O') || $('#2').hasClass('O') && $('#5').hasClass('O') && $('#8').hasClass('O') || $('#0').hasClass('O') && $('#4').hasClass('O') && $('#8').hasClass('O') || $('#2').hasClass('O') && $('#4').hasClass('O') && $('#6').hasClass('O')) 
+    {
+        $('#game-message').text('O is the Winner!')
+        $('#game-message').fadeIn()
+    } 
+}
 
 
 
@@ -30,12 +48,14 @@ const zeroBtn = ()=>{
         $('#0').text(O)
         $('#0').addClass('O')
         turns = 1
-    } 
+    }
     if (turns === 1) {
         $('#turn').text(X)
     } else {
         $('#turn').text(O)
     }
+    xWin()
+    oWin()
     
 }
 
@@ -55,6 +75,8 @@ const oneBtn = ()=>{
     } else {
         $('#turn').text(O)
     }
+    xWin()
+    oWin()
 }
 const twoBtn = ()=>{
     if (turns === 1) {
@@ -71,6 +93,8 @@ const twoBtn = ()=>{
     } else {
         $('#turn').text(O)
     }
+    xWin()
+    oWin()
 }
 const threeBtn = ()=>{
     if (turns === 1) {
@@ -89,6 +113,8 @@ const threeBtn = ()=>{
     } else {
         $('#turn').text(O)
     }
+    xWin()
+    oWin()
 }
 const fourBtn = ()=>{
     if (turns === 1) {
@@ -105,6 +131,8 @@ const fourBtn = ()=>{
     } else {
         $('#turn').text(O)
     }
+    xWin()
+    oWin()
 }
 const fiveBtn = ()=>{
     if (turns === 1) {
@@ -121,6 +149,8 @@ const fiveBtn = ()=>{
     } else {
         $('#turn').text(O)
     }
+    xWin()
+    oWin()
 }
 const sixBtn = ()=>{
     if (turns === 1) {
@@ -137,6 +167,8 @@ const sixBtn = ()=>{
     } else {
         $('#turn').text(O)
     }
+    xWin()
+    oWin()
 }
 const sevenBtn = ()=>{
     if (turns === 1) {
@@ -153,6 +185,8 @@ const sevenBtn = ()=>{
     } else {
         $('#turn').text(O)
     }
+    xWin()
+    oWin()
 }
 const eightBtn = ()=>{
     if (turns === 1) {
@@ -169,23 +203,16 @@ const eightBtn = ()=>{
     } else {
         $('#turn').text(O)
     }
+    xWin()
+    oWin()
 }
 
 const resetBtnClick = () => {
     $('.col').text('+').removeClass('X O')
+    $('#game-message').text('')
 }
 
-const checkWin = () => {
-    if ($('#0').hasClass('X') && $('#1').hasClass('X') && $('#2').hasClass('X') || $('#3').hasClass('X') && $('#4').hasClass('X') && $('#5').hasClass('X') || $('#6').hasClass('X') && $('#7').hasClass('X') && $('#8').hasClass('X') || $('#0').hasClass('X') && $('#3').hasClass('X') && $('#6').hasClass('X') || $('#1').hasClass('X') && $('#4').hasClass('X') && $('#7').hasClass('X') || $('#2').hasClass('X') && $('#5').hasClass('X') && $('#8').hasClass('X') || $('#0').hasClass('X') && $('#5').hasClass('X') && $('#8').hasClass('X') || $('#2').hasClass('X') && $('#4').hasClass('X') && $('#6').hasClass('X')) 
-    {
-        $('#game-message').text('X is the Winner!')
-        $('#game-message').fadeIn()  
-    } else if ($('#0').hasClass('O') && $('#1').hasClass('O') && $('#2').hasClass('O') || $('#3').hasClass('O') && $('#4').hasClass('O') && $('#5').hasClass('O') || $('#6').hasClass('O') && $('#7').hasClass('O') && $('#8').hasClass('O') || $('#0').hasClass('O') && $('#3').hasClass('O') && $('#6').hasClass('O') || $('#1').hasClass('O') && $('#4').hasClass('O') && $('#7').hasClass('O') || $('#2').hasClass('O') && $('#5').hasClass('O') && $('#8').hasClass('O') || $('#0').hasClass('O') && $('#5').hasClass('O') && $('#8').hasClass('O') || $('#2').hasClass('O') && $('#4').hasClass('O') && $('#6').hasClass('O')) 
-    {
-        $('#game-message').text('O is the Winner!');
-        $('#game-message').fadeIn()
-    } 
-}
+
 
 
 
