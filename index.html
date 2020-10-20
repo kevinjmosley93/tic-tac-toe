@@ -56,31 +56,32 @@
       </form>
       <!-- Create New Game -->
       <button class="btn btn-block btn-info container " type="submit" id="game-start">Start New Game</button>
-      <!-- Game Index -->
-      <button class="btn btn-block btn-info container " type="submit" id="game-index">Game List</button>
+      <!-- Game's Played -->
+      <button class="btn btn-block btn-info container " type="submit" id="game-index">Game's Played</button>
       <!-- Game Update -->
-      <button class="btn btn-block btn-info container " type="submit" id="game-update">Game Update</button>
+      <button class="btn btn-block btn-info container " type="click" id="game-update">Game Update</button>
       <!-- Game Board -->
       <div id="board" class="container rounded board shadow-lg">
         <h1 id="game-message" class="game-message text-center"></h1>
+        <!-- Scoreboard -->
         <h3>X Score: <span id="x-win">0</span></h3>
         <h3>O Score: <span id="o-win">0</span></h3>
         <h3>Tie: <span id="ties">0</span></h3>
         <h3>Turn: <span id="turn">X</span></h3>
         <div class="row">
-          <div id="0" class="col shadow-lg text-center">+</div>
-          <div id="1" class="col shadow-lg text-center">+</div>
-          <div id="2" class="col shadow-lg text-center">+</div>
+          <div data-box-index='0' id="0" class="col shadow-lg text-center">+</div>
+          <div data-box-index='1' id="1" class="col shadow-lg text-center">+</div>
+          <div data-box-index='2' id="2" class="col shadow-lg text-center">+</div>
         </div>
         <div class="row">
-          <div id="3" class="col shadow-lg text-center">+</div>
-          <div id="4" class="col shadow-lg text-center">+</div>
-          <div id="5" class="col shadow-lg text-center">+</div>
+          <div data-box-index='3' id="3" class="col shadow-lg text-center">+</div>
+          <div data-box-index='4' id="4" class="col shadow-lg text-center">+</div>
+          <div data-box-index='5' id="5" class="col shadow-lg text-center">+</div>
         </div>
         <div class="row">
-          <div id="6" class="col shadow-lg text-center">+</div>
-          <div id="7" class="col shadow-lg text-center">+</div>
-          <div id="8" class="col shadow-lg text-center">+</div>
+          <div data-box-index='6' id="6" class="col shadow-lg text-center">+</div>
+          <div data-box-index='7' id="7" class="col shadow-lg text-center">+</div>
+          <div data-box-index='8' id="8" class="col shadow-lg text-center">+</div>
         </div>
         <!-- Sign Out & Reset -->
         <form id='sign-out'>

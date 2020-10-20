@@ -24,19 +24,19 @@ const listGame = () => {
 
 const updateGame = (data) => {
     return $.ajax({
-      url: config.apiUrl + '/games/' + store.game.id,
+      url: `${config.apiUrl}/games/${store.user._id}`,
       method: 'PATCH',
       headers: {
         Authorization:
         `Bearer ${store.user.token}`
     },
       data: {
-        "game": {
-          "cell": {
-            "index": 0,
-            "value": "x"
+        game: {
+          cell: {
+            index: {},
+            value: ""
           },
-          "over": false
+          over: false
         }
       }
     })   

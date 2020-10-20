@@ -9,22 +9,26 @@ const signUpPass = (res) => {
 
 const signInPass = (res) => {
     store.user = res.user
-    $('#message').text(`${res.user.email} Signed In!`)
+    $('#message').text(`${res.user.email} is signed in!`)
     $('#sign-in-form').trigger("reset")
     $('#sign-in-form').hide()
     $('#sign-up-form').hide()
-    $('#change-password-form').hide()
+    $('#change-password-form').show()
     $('#board').hide()
     $('#game-start').show()
+    $('#game-index').hide()
+    $('#game-update').hide()
 }
 const signOutPass = () => {
     store.user = null
+    $('#game-message').text('')
     $('#message').text('Thanks for playing')
     $('#change-password-form').hide()
     $('#board').hide()
     $('#sign-in-form').show()
     $('#game-update').hide()
-    $('#game-list').hide()
+    $('#game-index').hide()
+    $('#game-start').hide()
   }
 
 const onChangePasswordPass = () => {

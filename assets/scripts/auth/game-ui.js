@@ -2,25 +2,28 @@ const store = require('./../store')
 
 const gameStart = () => {
     $('#message').text(`${store.user.email} is playing!`)
-    $('#change-password-form').show()
+    $('#change-password-form').hide()
     $('#board').show()
     $('#game-start').hide()
     $('#game-index').show()
-    $('#game-update').show()
+    $('#game-update').hide()
    
 }
 
-const gameList = () => {
-    $('#message').text(`This is your first game! ${store.user.email}`)
-    $('#change-password-form').show()
+const gameList = (res) => {
+    store.games = res.games
+    const gameList = store.games.length
+    $('#game-message').text(`Hey ${store.user.email}, you have played ${gameList} games!`)
+    $('#change-password-form').hide()
     $('#board').show()
     $('#game-start').hide()
     $('#game-index').hide()
-    $('#game-update').show()
+    $('#game-update').hide()
    
 }
 
-const gameUpdate = () => {
+const gameUpdate = (res) => {
+    store.games = res.games
     $('#message').text(`Hey ${store.user.email}, these are your games`)
     $('#change-password-form').show()
     $('#board').show()

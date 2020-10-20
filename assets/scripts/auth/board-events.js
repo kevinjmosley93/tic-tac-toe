@@ -15,9 +15,7 @@ const listGameClick = (event) => {
 
 const updateGameClick = (event) => {
     event.preventDefault()
-    const form = event.target
-    const data = getFormInfo(form)
-    gameApi.updateGame(data).then(gameUi.gameUpdate).catch(gameUi.gameFail)
+    gameApi.updateGame().then(gameUi.gameUpdate).catch(gameUi.gameFail)
 }
 
 
@@ -32,9 +30,9 @@ const xWin = () => {
     if ($('#0').hasClass('X') && $('#1').hasClass('X') && $('#2').hasClass('X') || $('#3').hasClass('X') && $('#4').hasClass('X') && $('#5').hasClass('X') || $('#6').hasClass('X') && $('#7').hasClass('X') && $('#8').hasClass('X') || $('#0').hasClass('X') && $('#3').hasClass('X') && $('#6').hasClass('X') || $('#1').hasClass('X') && $('#4').hasClass('X') && $('#7').hasClass('X') || $('#2').hasClass('X') && $('#5').hasClass('X') && $('#8').hasClass('X') || $('#0').hasClass('X') && $('#4').hasClass('X') && $('#8').hasClass('X') || $('#2').hasClass('X') && $('#4').hasClass('X') && $('#6').hasClass('X')) 
     {
         $('#game-message').text('X is the Winner!')
-        $('#game-message').fadeIn()
-        
-        
+        $('.col').addClass('gameover')
+        xScore++
+        $('#x-win').text(xScore)
     } 
 }
     
@@ -42,8 +40,18 @@ const oWin = () => {
     if ($('#0').hasClass('O') && $('#1').hasClass('O') && $('#2').hasClass('O') || $('#3').hasClass('O') && $('#4').hasClass('O') && $('#5').hasClass('O') || $('#6').hasClass('O') && $('#7').hasClass('O') && $('#8').hasClass('O') || $('#0').hasClass('O') && $('#3').hasClass('O') && $('#6').hasClass('O') || $('#1').hasClass('O') && $('#4').hasClass('O') && $('#7').hasClass('O') || $('#2').hasClass('O') && $('#5').hasClass('O') && $('#8').hasClass('O') || $('#0').hasClass('O') && $('#4').hasClass('O') && $('#8').hasClass('O') || $('#2').hasClass('O') && $('#4').hasClass('O') && $('#6').hasClass('O')) 
     {
         $('#game-message').text('O is the Winner!')
-        $('#game-message').fadeIn()
+        $('.col').addClass('gameover')
+        oScore++
+        $('#o-win').text(oScore)    
     } 
+}
+
+const draw = () =>{
+    if ($('.X').length + $('.O').length === 9) {
+        $('#game-message').text("It's a Draw!!")
+        ties++
+        $('#ties').text(ties)
+    }
 }
 
 
@@ -65,7 +73,7 @@ const zeroBtn = ()=>{
     }
     xWin()
     oWin()
-    
+    draw()
 }
 
 
@@ -86,6 +94,7 @@ const oneBtn = ()=>{
     }
     xWin()
     oWin()
+    draw()
 }
 const twoBtn = ()=>{
     if (turns === 1) {
@@ -104,6 +113,7 @@ const twoBtn = ()=>{
     }
     xWin()
     oWin()
+    draw()
 }
 const threeBtn = ()=>{
     if (turns === 1) {
@@ -124,6 +134,7 @@ const threeBtn = ()=>{
     }
     xWin()
     oWin()
+    draw()
 }
 const fourBtn = ()=>{
     if (turns === 1) {
@@ -142,6 +153,7 @@ const fourBtn = ()=>{
     }
     xWin()
     oWin()
+    draw()
 }
 const fiveBtn = ()=>{
     if (turns === 1) {
@@ -160,6 +172,7 @@ const fiveBtn = ()=>{
     }
     xWin()
     oWin()
+    draw()
 }
 const sixBtn = ()=>{
     if (turns === 1) {
@@ -178,6 +191,7 @@ const sixBtn = ()=>{
     }
     xWin()
     oWin()
+    draw()
 }
 const sevenBtn = ()=>{
     if (turns === 1) {
@@ -196,6 +210,7 @@ const sevenBtn = ()=>{
     }
     xWin()
     oWin()
+    draw()
 }
 const eightBtn = ()=>{
     if (turns === 1) {
@@ -214,10 +229,11 @@ const eightBtn = ()=>{
     }
     xWin()
     oWin()
+    draw()
 }
 
 const resetBtnClick = () => {
-    $('.col').text('+').removeClass('X O')
+    $('.col').text('+').removeClass('X O gameover')
     $('#game-message').text('')
 }
 
