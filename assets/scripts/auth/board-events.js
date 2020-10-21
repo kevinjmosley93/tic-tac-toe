@@ -25,7 +25,7 @@ let xScore = 0
 let oScore = 0
 let ties = 0
 let turns = 1
-
+// If X wins
 const xWin = () => {
     if ($('#0').hasClass('X') && $('#1').hasClass('X') && $('#2').hasClass('X') || $('#3').hasClass('X') && $('#4').hasClass('X') && $('#5').hasClass('X') || $('#6').hasClass('X') && $('#7').hasClass('X') && $('#8').hasClass('X') || $('#0').hasClass('X') && $('#3').hasClass('X') && $('#6').hasClass('X') || $('#1').hasClass('X') && $('#4').hasClass('X') && $('#7').hasClass('X') || $('#2').hasClass('X') && $('#5').hasClass('X') && $('#8').hasClass('X') || $('#0').hasClass('X') && $('#4').hasClass('X') && $('#8').hasClass('X') || $('#2').hasClass('X') && $('#4').hasClass('X') && $('#6').hasClass('X')) 
     {
@@ -35,7 +35,7 @@ const xWin = () => {
         $('#x-win').text(xScore)
     } 
 }
-    
+// If o wins  
 const oWin = () => {
     if ($('#0').hasClass('O') && $('#1').hasClass('O') && $('#2').hasClass('O') || $('#3').hasClass('O') && $('#4').hasClass('O') && $('#5').hasClass('O') || $('#6').hasClass('O') && $('#7').hasClass('O') && $('#8').hasClass('O') || $('#0').hasClass('O') && $('#3').hasClass('O') && $('#6').hasClass('O') || $('#1').hasClass('O') && $('#4').hasClass('O') && $('#7').hasClass('O') || $('#2').hasClass('O') && $('#5').hasClass('O') && $('#8').hasClass('O') || $('#0').hasClass('O') && $('#4').hasClass('O') && $('#8').hasClass('O') || $('#2').hasClass('O') && $('#4').hasClass('O') && $('#6').hasClass('O')) 
     {
@@ -45,7 +45,7 @@ const oWin = () => {
         $('#o-win').text(oScore)    
     } 
 }
-
+// If its a draw
 const draw = () =>{
     if ($('.X').length + $('.O').length === 9) {
         $('#game-message').text("It's a Draw!!")
@@ -55,7 +55,7 @@ const draw = () =>{
 }
 
 
-
+// Each box switching turns 
 const zeroBtn = ()=>{
     if (turns === 1) {
         $('#0').text(X)
