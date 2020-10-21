@@ -34,9 +34,13 @@ const signOutPass = () => {
 const onChangePasswordPass = () => {
     $('#change-password-form').hide()
     $('#board').hide()
+    $('#game-update').hide()
+    $('#game-index').hide()
+    $('#game-start').hide()
     $('#change-password-form').trigger('reset')
     $('#sign-in-form').show()
     $('#message').text('Changed password successfully')
+
 }
 const signUpFail = (res) => {
     $('#message').text(`Opps, looks like something went wrong ${res.user.email}! Please try again`)
