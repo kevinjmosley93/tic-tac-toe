@@ -3,6 +3,13 @@ const api = require("./api")
 const gameApi = require('./game-api')
 const gameUi = require('./game-ui')
 
+const X = 'X'
+const O = 'O'
+let xScore = 0
+let oScore = 0
+let ties = 0
+let turns = 1
+
 const startGameClick = (event) =>{
     event.preventDefault()
     gameApi.createGame().then(gameUi.gameStart).catch(gameUi.gameFail)
@@ -18,13 +25,22 @@ const updateGameClick = (event) => {
     gameApi.updateGame().then(gameUi.gameUpdate).catch(gameUi.gameFail)
 }
 
+const resetBtnClick = () => {
+    turns = 1
+    xScore = 0
+    oScore = 0
+    ties = 0
+    $('#turn').text(X)
+    $('#x-win').text(xScore)
+    $('#o-win').text(oScore)
+    $('#ties').text(ties)
+    $('.col').text('+').removeClass('X O gameover')
+    $('#game-message').text('')
+    $('#board').hide()
+    $('#game-start').show()
+    $('#game-index').hide()
+}
 
-const X = 'X'
-const O = 'O'
-let xScore = 0
-let oScore = 0
-let ties = 0
-let turns = 1
 // If X wins
 const xWin = () => {
     if ($('#0').hasClass('X') && $('#1').hasClass('X') && $('#2').hasClass('X') || $('#3').hasClass('X') && $('#4').hasClass('X') && $('#5').hasClass('X') || $('#6').hasClass('X') && $('#7').hasClass('X') && $('#8').hasClass('X') || $('#0').hasClass('X') && $('#3').hasClass('X') && $('#6').hasClass('X') || $('#1').hasClass('X') && $('#4').hasClass('X') && $('#7').hasClass('X') || $('#2').hasClass('X') && $('#5').hasClass('X') && $('#8').hasClass('X') || $('#0').hasClass('X') && $('#4').hasClass('X') && $('#8').hasClass('X') || $('#2').hasClass('X') && $('#4').hasClass('X') && $('#6').hasClass('X')) 
@@ -42,7 +58,7 @@ const oWin = () => {
         $('#game-message').text('O is the Winner!')
         $('.col').addClass('gameover')
         oScore++
-        $('#o-win').text(oScore)    
+        $('#o-win').text(oScore)
     } 
 }
 // If its a draw
@@ -232,10 +248,7 @@ const eightBtn = ()=>{
     draw()
 }
 
-const resetBtnClick = () => {
-    $('.col').text('+').removeClass('X O gameover')
-    $('#game-message').text('')
-}
+
 
 
 

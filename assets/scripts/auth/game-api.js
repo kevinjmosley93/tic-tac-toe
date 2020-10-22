@@ -30,16 +30,8 @@ const updateGame = (data) => {
         Authorization:
         `Bearer ${store.user.token}`
     },
-      data: {
-        game: {
-          cell: {
-            index: {},
-            value: ""
-          },
-          over: false
-        }
-      }
-    })   
+      data: data
+  })   
 }
 
 module.exports = {
