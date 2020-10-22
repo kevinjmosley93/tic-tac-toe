@@ -46,7 +46,7 @@ const oWin = () => {
     } 
 }
 
-const draw = () =>{
+const draw = () => {
     if ($('.X').length + $('.O').length === 9) {
         $('#game-message').text("It's a Draw!!")
         ties++
