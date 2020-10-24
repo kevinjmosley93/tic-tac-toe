@@ -2,6 +2,7 @@ const getFormInfo = require("../../../lib/get-form-fields")
 const api = require("./api")
 const gameApi = require('./game-api')
 const gameUi = require('./game-ui')
+const store = require('../store')
 
 const X = 'X'
 const O = 'O'

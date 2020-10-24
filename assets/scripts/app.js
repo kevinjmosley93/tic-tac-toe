@@ -23,7 +23,7 @@ $(() => {
   $('.reset-btn').on('click', boardEvents.resetBtnClick)
   $('#game-start').on('click', boardEvents.startGameClick)
   $('#game-index').on('click', boardEvents.listGameClick)
-  $('#col').on('click', boardEvents.updateGameClick)
+  $('.col').on('click', boardEvents.updateGameClick)
 
   
   $('#0').on('click', boardEvents.zeroBtn)

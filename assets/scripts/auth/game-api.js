@@ -1,13 +1,15 @@
 const config = require('./../config')
 const store = require('../store')
 
+
 const createGame = () => {
     return $.ajax({   
         url: `${config.apiUrl}/games`,
         method: 'POST',
         headers: {
             Authorization: `Bearer ${store.user.token}`
-        }
+        },
+        data: {}
     })
 }
 
@@ -22,7 +24,7 @@ const listGame = () => {
     })
 }
 
-const updateGame = (data) => {
+const updateGame = () => {
     return $.ajax({
       url: `${config.apiUrl}/games/${store.user._id}`,
       method: 'PATCH',
@@ -30,8 +32,9 @@ const updateGame = (data) => {
         Authorization:
         `Bearer ${store.user.token}`
     },
-      data: data
-  })   
+      data:store.data
+  })
+     
 }
 
 module.exports = {
