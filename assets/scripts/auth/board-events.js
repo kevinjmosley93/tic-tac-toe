@@ -23,7 +23,11 @@ const listGameClick = (event) => {
 
 const updateGameClick = (event) => {
     event.preventDefault()
-    gameApi.updateGame().then(gameUi.gameUpdate).catch(gameUi.gameFail)
+    console.log('store games',store)
+    const box = $(event.target)
+    const boxIndex = box.data('box-index')
+    gameApi.updateGame(boxIndex, store.game).then(gameUi.gameUpdate).catch(gameUi.gameFail)
+    console.log('box index', box)
 }
 
 const resetBtnClick = () => {

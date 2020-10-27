@@ -1,5 +1,12 @@
 const store = require('./../store')
 
+
+const updateGameId = res => {
+    store.game = res.game._id
+    const gameId = store.game
+    console.log('game id is:', gameId)
+}
+
 const gameStart = (res) => {
     store.game = res.game._id
     $('#message').text(`${store.user.email} is playing!`)
@@ -8,13 +15,12 @@ const gameStart = (res) => {
     $('#game-start').hide()
     $('#game-index').show()
     $('#game-update').hide()
-    console.log('game id is:', store.game)
 }
 
 const gameList = (res) => {
-    store.game = res.game
+    store.games = res.games
     console.log('res', res)
-    const gameList = store.game.length
+    const gameList = store.games.length
     $('#game-message').text(`Hey ${store.user.email}, you have played ${gameList} games!`)
     $('#change-password-form').hide()
     $('#board').show()
@@ -25,10 +31,9 @@ const gameList = (res) => {
 }
 
 const gameUpdate = (res) => {
-    store.game = res.game
-    console.log('res for update', res.game)
-    $('#message').text(`Hey ${store.user.email}, these are your games`)
-    $('#change-password-form').show()
+    store.game = res.game._id
+    console.log('res for update', store.game)
+    $('#change-password-form').hide()
     $('#board').show()
 
 }
@@ -41,5 +46,6 @@ module.exports = {
     gameStart,
     gameList,
     gameUpdate,
-    gameFail
+    gameFail,
+    updateGameId
 }
