@@ -7,7 +7,8 @@ const createGame = () => {
         method: 'POST',
         headers: {
             Authorization: `Bearer ${store.user.token}`
-        }
+        },
+        data: {}
     })
 }
 
@@ -22,25 +23,28 @@ const listGame = () => {
     })
 }
 
-const updateGame = (data) => {
+const updateGame = (index) => {
+    const gameId = store.game
     return $.ajax({
-      url: `${config.apiUrl}/games/${store.user._id}`,
+      url: `${config.apiUrl}/games/${gameId}`,
       method: 'PATCH',
       headers: {
         Authorization:
         `Bearer ${store.user.token}`
     },
-      data: {
+      data:{
         game: {
           cell: {
-            index: {},
-            value: ""
+            index: index,
+            value: $('#turn').text()
           },
           over: false
         }
       }
-    })   
-}
+})
+  
+}    
+
 
 module.exports = {
     createGame,

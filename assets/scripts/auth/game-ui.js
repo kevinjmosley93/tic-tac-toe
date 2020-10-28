@@ -1,13 +1,13 @@
 const store = require('./../store')
 
-const gameStart = () => {
+const gameStart = (res) => {
+    store.game = res.game._id
     $('#message').text(`${store.user.email} is playing!`)
     $('#change-password-form').hide()
     $('#board').show()
     $('#game-start').hide()
     $('#game-index').show()
     $('#game-update').hide()
-   
 }
 
 const gameList = (res) => {
@@ -22,21 +22,20 @@ const gameList = (res) => {
    
 }
 
-const gameUpdate = (res) => {
-    store.games = res.games
-    $('#message').text(`Hey ${store.user.email}, these are your games`)
-    $('#change-password-form').show()
+const gameUpdate = () => {
+    $('#change-password-form').hide()
     $('#board').show()
 
 }
 
 
-const gameFail = (err) => {
-    console.log('Error!!!!!!', err)
+const gameFail = () => {
+    console.log('Something went wrong, try again!')
 }
 module.exports = {
     gameStart,
     gameList,
     gameUpdate,
-    gameFail
+    gameFail,
+
 }

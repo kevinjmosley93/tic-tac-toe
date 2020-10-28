@@ -2,6 +2,21 @@ const getFormInfo = require("../../../lib/get-form-fields")
 const api = require("./api")
 const gameApi = require('./game-api')
 const gameUi = require('./game-ui')
+const store = require('../store')
+
+const X = 'X'
+const O = 'O'
+let xScore = 0
+let oScore = 0
+let ties = 0
+let turns = 1
+let turnText = ()=>{
+    if (turns === 1) {
+        $('#turn').text(X)
+    } else {
+        $('#turn').text(O)
+    }
+}    
 
 const startGameClick = (event) =>{
     event.preventDefault()
@@ -15,17 +30,28 @@ const listGameClick = (event) => {
 
 const updateGameClick = (event) => {
     event.preventDefault()
-    gameApi.updateGame().then(gameUi.gameUpdate).catch(gameUi.gameFail)
+    const box = $(event.target)
+    const boxIndex = box.data('box-index')
+    gameApi.updateGame(boxIndex, store.game).then(gameUi.gameUpdate).catch(gameUi.gameFail)
 }
 
+const resetBtnClick = () => {
+    turns = 1
+    xScore = 0
+    oScore = 0
+    ties = 0
+    $('#turn').text(X)
+    $('#x-win').text(xScore)
+    $('#o-win').text(oScore)
+    $('#ties').text(ties)
+    $('.col').text('+').removeClass('X O gameover')
+    $('#game-message').text('')
+    $('#board').hide()
+    $('#game-start').show()
+    $('#game-index').hide()
+}
 
-const X = 'X'
-const O = 'O'
-let xScore = 0
-let oScore = 0
-let ties = 0
-let turns = 1
-
+// If X wins
 const xWin = () => {
     if ($('#0').hasClass('X') && $('#1').hasClass('X') && $('#2').hasClass('X') || $('#3').hasClass('X') && $('#4').hasClass('X') && $('#5').hasClass('X') || $('#6').hasClass('X') && $('#7').hasClass('X') && $('#8').hasClass('X') || $('#0').hasClass('X') && $('#3').hasClass('X') && $('#6').hasClass('X') || $('#1').hasClass('X') && $('#4').hasClass('X') && $('#7').hasClass('X') || $('#2').hasClass('X') && $('#5').hasClass('X') && $('#8').hasClass('X') || $('#0').hasClass('X') && $('#4').hasClass('X') && $('#8').hasClass('X') || $('#2').hasClass('X') && $('#4').hasClass('X') && $('#6').hasClass('X')) 
     {
@@ -35,18 +61,23 @@ const xWin = () => {
         $('#x-win').text(xScore)
     } 
 }
-    
+// If o wins  
 const oWin = () => {
     if ($('#0').hasClass('O') && $('#1').hasClass('O') && $('#2').hasClass('O') || $('#3').hasClass('O') && $('#4').hasClass('O') && $('#5').hasClass('O') || $('#6').hasClass('O') && $('#7').hasClass('O') && $('#8').hasClass('O') || $('#0').hasClass('O') && $('#3').hasClass('O') && $('#6').hasClass('O') || $('#1').hasClass('O') && $('#4').hasClass('O') && $('#7').hasClass('O') || $('#2').hasClass('O') && $('#5').hasClass('O') && $('#8').hasClass('O') || $('#0').hasClass('O') && $('#4').hasClass('O') && $('#8').hasClass('O') || $('#2').hasClass('O') && $('#4').hasClass('O') && $('#6').hasClass('O')) 
     {
         $('#game-message').text('O is the Winner!')
         $('.col').addClass('gameover')
         oScore++
-        $('#o-win').text(oScore)    
+        $('#o-win').text(oScore)
     } 
 }
+<<<<<<< HEAD
 
 const draw = () => {
+=======
+// If its a draw
+const draw = () =>{
+>>>>>>> test
     if ($('.X').length + $('.O').length === 9) {
         $('#game-message').text("It's a Draw!!")
         ties++
@@ -55,7 +86,7 @@ const draw = () => {
 }
 
 
-
+// Each box switching turns 
 const zeroBtn = ()=>{
     if (turns === 1) {
         $('#0').text(X)
@@ -66,11 +97,7 @@ const zeroBtn = ()=>{
         $('#0').addClass('O')
         turns = 1
     }
-    if (turns === 1) {
-        $('#turn').text(X)
-    } else {
-        $('#turn').text(O)
-    }
+    turnText()
     xWin()
     oWin()
     draw()
@@ -87,11 +114,7 @@ const oneBtn = ()=>{
         $('#1').addClass('O')
         turns = 1
     }
-    if (turns === 1) {
-        $('#turn').text(X)
-    } else {
-        $('#turn').text(O)
-    }
+    turnText()
     xWin()
     oWin()
     draw()
@@ -106,11 +129,7 @@ const twoBtn = ()=>{
         $('#2').addClass('O')
         turns = 1
     }
-    if (turns === 1) {
-        $('#turn').text(X)
-    } else {
-        $('#turn').text(O)
-    }
+    turnText()
     xWin()
     oWin()
     draw()
@@ -127,11 +146,7 @@ const threeBtn = ()=>{
 
         turns = 1
     }
-    if (turns === 1) {
-        $('#turn').text(X)
-    } else {
-        $('#turn').text(O)
-    }
+    turnText()
     xWin()
     oWin()
     draw()
@@ -146,11 +161,7 @@ const fourBtn = ()=>{
         $('#4').addClass('O')
         turns = 1
     }
-    if (turns === 1) {
-        $('#turn').text(X)
-    } else {
-        $('#turn').text(O)
-    }
+    turnText()
     xWin()
     oWin()
     draw()
@@ -165,11 +176,7 @@ const fiveBtn = ()=>{
         $('#5').addClass('O')
         turns = 1
     }
-    if (turns === 1) {
-        $('#turn').text(X)
-    } else {
-        $('#turn').text(O)
-    }
+    turnText()
     xWin()
     oWin()
     draw()
@@ -184,11 +191,7 @@ const sixBtn = ()=>{
         $('#6').addClass('O')
         turns = 1
     }
-    if (turns === 1) {
-        $('#turn').text(X)
-    } else {
-        $('#turn').text(O)
-    }
+    turnText()
     xWin()
     oWin()
     draw()
@@ -203,11 +206,7 @@ const sevenBtn = ()=>{
         $('#7').addClass('O')
         turns = 1
     }
-    if (turns === 1) {
-        $('#turn').text(X)
-    } else {
-        $('#turn').text(O)
-    }
+    turnText()
     xWin()
     oWin()
     draw()
@@ -222,20 +221,13 @@ const eightBtn = ()=>{
         $('#8').addClass('O')
         turns = 1
     }
-    if (turns === 1) {
-        $('#turn').text(X)
-    } else {
-        $('#turn').text(O)
-    }
+    turnText()
     xWin()
     oWin()
     draw()
 }
 
-const resetBtnClick = () => {
-    $('.col').text('+').removeClass('X O gameover')
-    $('#game-message').text('')
-}
+
 
 
 
