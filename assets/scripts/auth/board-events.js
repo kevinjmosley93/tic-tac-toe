@@ -71,13 +71,8 @@ const oWin = () => {
         $('#o-win').text(oScore)
     } 
 }
-<<<<<<< HEAD
-
-const draw = () => {
-=======
 // If its a draw
 const draw = () =>{
->>>>>>> test
     if ($('.X').length + $('.O').length === 9) {
         $('#game-message').text("It's a Draw!!")
         ties++
