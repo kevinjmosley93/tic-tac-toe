@@ -1,6 +1,6 @@
 # Tic-Tac-Toe
 
-This is my first Project at GA. this application allows users to play a friendly game of Tic-Tac-Toe against themselves.
+This is my first Project at GA. This application allows users to play a friendly game of Tic-Tac-Toe against themselves.
 
 ## Planning Story
 
@@ -23,7 +23,7 @@ I first started to work on the design and logic of my sign-in/sign-up forms, mov
 
 ### Unsolved Problems
 
-- I still need to update game board through patch request when clicked.
+- Would like to upgrade the styles and add animations
 
 ### Wireframes
 
