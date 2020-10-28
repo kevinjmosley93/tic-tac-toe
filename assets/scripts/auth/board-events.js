@@ -10,6 +10,13 @@ let xScore = 0
 let oScore = 0
 let ties = 0
 let turns = 1
+let turnText = ()=>{
+    if (turns === 1) {
+        $('#turn').text(X)
+    } else {
+        $('#turn').text(O)
+    }
+}    
 
 const startGameClick = (event) =>{
     event.preventDefault()
@@ -23,11 +30,9 @@ const listGameClick = (event) => {
 
 const updateGameClick = (event) => {
     event.preventDefault()
-    console.log('store games',store)
     const box = $(event.target)
     const boxIndex = box.data('box-index')
     gameApi.updateGame(boxIndex, store.game).then(gameUi.gameUpdate).catch(gameUi.gameFail)
-    console.log('box index', box)
 }
 
 const resetBtnClick = () => {
@@ -87,11 +92,7 @@ const zeroBtn = ()=>{
         $('#0').addClass('O')
         turns = 1
     }
-    if (turns === 1) {
-        $('#turn').text(X)
-    } else {
-        $('#turn').text(O)
-    }
+    turnText()
     xWin()
     oWin()
     draw()
@@ -108,11 +109,7 @@ const oneBtn = ()=>{
         $('#1').addClass('O')
         turns = 1
     }
-    if (turns === 1) {
-        $('#turn').text(X)
-    } else {
-        $('#turn').text(O)
-    }
+    turnText()
     xWin()
     oWin()
     draw()
@@ -127,11 +124,7 @@ const twoBtn = ()=>{
         $('#2').addClass('O')
         turns = 1
     }
-    if (turns === 1) {
-        $('#turn').text(X)
-    } else {
-        $('#turn').text(O)
-    }
+    turnText()
     xWin()
     oWin()
     draw()
@@ -148,11 +141,7 @@ const threeBtn = ()=>{
 
         turns = 1
     }
-    if (turns === 1) {
-        $('#turn').text(X)
-    } else {
-        $('#turn').text(O)
-    }
+    turnText()
     xWin()
     oWin()
     draw()
@@ -167,11 +156,7 @@ const fourBtn = ()=>{
         $('#4').addClass('O')
         turns = 1
     }
-    if (turns === 1) {
-        $('#turn').text(X)
-    } else {
-        $('#turn').text(O)
-    }
+    turnText()
     xWin()
     oWin()
     draw()
@@ -186,11 +171,7 @@ const fiveBtn = ()=>{
         $('#5').addClass('O')
         turns = 1
     }
-    if (turns === 1) {
-        $('#turn').text(X)
-    } else {
-        $('#turn').text(O)
-    }
+    turnText()
     xWin()
     oWin()
     draw()
@@ -205,11 +186,7 @@ const sixBtn = ()=>{
         $('#6').addClass('O')
         turns = 1
     }
-    if (turns === 1) {
-        $('#turn').text(X)
-    } else {
-        $('#turn').text(O)
-    }
+    turnText()
     xWin()
     oWin()
     draw()
@@ -224,11 +201,7 @@ const sevenBtn = ()=>{
         $('#7').addClass('O')
         turns = 1
     }
-    if (turns === 1) {
-        $('#turn').text(X)
-    } else {
-        $('#turn').text(O)
-    }
+    turnText()
     xWin()
     oWin()
     draw()
@@ -243,11 +216,7 @@ const eightBtn = ()=>{
         $('#8').addClass('O')
         turns = 1
     }
-    if (turns === 1) {
-        $('#turn').text(X)
-    } else {
-        $('#turn').text(O)
-    }
+    turnText()
     xWin()
     oWin()
     draw()

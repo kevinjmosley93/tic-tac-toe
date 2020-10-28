@@ -1,7 +1,6 @@
 const config = require('./../config')
 const store = require('../store')
 
-
 const createGame = () => {
     return $.ajax({   
         url: `${config.apiUrl}/games`,
@@ -24,10 +23,8 @@ const listGame = () => {
     })
 }
 
-const updateGame = (index, player) => {
+const updateGame = (index) => {
     const gameId = store.game
-    console.log(index)
-    console.log(player)
     return $.ajax({
       url: `${config.apiUrl}/games/${gameId}`,
       method: 'PATCH',
@@ -39,7 +36,7 @@ const updateGame = (index, player) => {
         game: {
           cell: {
             index: index,
-            value: player
+            value: $('#turn').text()
           },
           over: false
         }
