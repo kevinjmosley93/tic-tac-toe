@@ -16901,7 +16901,7 @@ var oWin = function oWin() {
 };
 // If its a draw
 var draw = function draw() {
-    if ($('.X').length + $('.O').length === 9) {
+    if ($('.X').length + $('.O').length === 9 && xScore <= 0 && oScore <= 0) {
         $('#game-message').text("It's a Draw!!");
         ties++;
         $('#ties').text(ties);
