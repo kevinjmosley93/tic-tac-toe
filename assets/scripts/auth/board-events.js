@@ -49,6 +49,7 @@ const resetBtnClick = () => {
     $('#board').hide()
     $('#game-start').show()
     $('#game-index').show()
+    $('#sign_out_btn').show()
     $('#change-password-form').show()
 }
 

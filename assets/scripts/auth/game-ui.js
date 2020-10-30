@@ -8,6 +8,7 @@ const gameStart = (res) => {
     $('#game-start').hide()
     $('#game-index').hide()
     $('#game-update').hide()
+    $('#sign_out_btn').hide()
     $('#games-played-message').text('')
 }
 
@@ -19,6 +20,7 @@ const gameList = (res) => {
     $('#board').hide()
     $('#game-start').show()
     $('#game-index').show()
+    $('#sign_out_btn').show()
     $('#game-update').hide()
    
 }
@@ -31,7 +33,7 @@ const gameUpdate = () => {
 
 
 const gameFail = () => {
-    console.log('Something went wrong, try again!')
+    $('#message').text(`Opps, looks like something went wrong! Please try again`)
 }
 module.exports = {
     gameStart,

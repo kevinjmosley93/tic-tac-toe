@@ -5,6 +5,7 @@ const signUpPass = (res) => {
     $('#sign-up-form').trigger('reset')
     $('#sign-up-form').show()
     $('#sign-in-form').show()
+    $('#sign_out_btn').hide()
 }
 
 const signInPass = (res) => {
@@ -17,6 +18,7 @@ const signInPass = (res) => {
     $('#board').hide()
     $('#game-start').show()
     $('#game-index').show()
+    $('#sign_out_btn').show()
     $('#game-update').hide()
 }
 const signOutPass = () => {
@@ -29,7 +31,21 @@ const signOutPass = () => {
     $('#game-update').hide()
     $('#game-index').hide()
     $('#game-start').hide()
-  }
+    $('#sign_out_btn').hide()
+}
+
+const signOutBtnPass = () => {
+    store.user = null
+    $('#game-message').text('')
+    $('#message').text('Thanks for playing')
+    $('#change-password-form').hide()
+    $('#board').hide()
+    $('#sign-in-form').show()
+    $('#game-update').hide()
+    $('#game-index').hide()
+    $('#game-start').hide()
+    $('#sign_out_btn').hide()
+}
 
 const onChangePasswordPass = () => {
     $('#change-password-form').show()
@@ -39,24 +55,27 @@ const onChangePasswordPass = () => {
     $('#game-start').show()
     $('#change-password-form').trigger('reset')
     $('#sign-in-form').hide()
-    $('#message').text('Changed password successfully')
+    $('#message').text('Changed password successfully, Start a New Game!')
     $('#game-index').show().text('Game\'s Played')
+    $('#sign_out_btn').show()
 
 }
-const signUpFail = (res) => {
-    $('#message').text(`Opps, looks like something went wrong ${res.user.email}! Please try again`)
+const signUpFail = () => {
+    $('#message').text(`Opps, looks like something went wrong! Please try again`)
 }
-const signOutFail = (res) => {
-    $('#message').text(`Opps, looks like something went wrong ${res.user.email}! Please try again`)
+
+const signOutFail = () => {
+    $('#message').text(`Opps, looks like something went wrong! Please try again`)
 }
-const onChangePasswordFail = (err) => {
-    $('#message').text('Error on change password')
+const onChangePasswordFail = () => {
+    $('#message').text('Error on change password, Please try again!')
   }
 
 module.exports = {
     signUpPass,
     signInPass,
     signOutPass,
+    signOutBtnPass,
     onChangePasswordPass,
     onChangePasswordFail,
     signUpFail,
