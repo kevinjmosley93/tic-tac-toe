@@ -1,3 +1,4 @@
+const store = require('../store')
 const getFormInfo = require('./../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
@@ -22,7 +23,11 @@ const signOutClick = (event) => {
     api.signOut().then(ui.signOutPass).catch(ui.signOutFail)
 
 }
+const signOutBtn = (event) => {
+    event.preventDefault()
+    api.signOutBtn().then(ui.signOutBtnPass).catch(ui.signOutFail)
 
+}
 
 const changePasswordClick = (event) => {
     event.preventDefault()
@@ -38,5 +43,6 @@ const changePasswordClick = (event) => {
       signUpClick,
       signInClick,
       signOutClick,
+      signOutBtn,
       changePasswordClick
   }
