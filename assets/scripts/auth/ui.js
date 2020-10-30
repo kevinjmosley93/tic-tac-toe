@@ -3,7 +3,7 @@ const store = require('./../store')
 const signUpPass = (res) => {
     $('#message').text(`Thanks for signing up ${res.user.email}! Sign In to Play`)
     $('#sign-up-form').trigger('reset')
-    $('#sign-up-form').hide()
+    $('#sign-up-form').show()
     $('#sign-in-form').show()
 }
 
@@ -16,7 +16,7 @@ const signInPass = (res) => {
     $('#change-password-form').show()
     $('#board').hide()
     $('#game-start').show()
-    $('#game-index').hide()
+    $('#game-index').show()
     $('#game-update').hide()
 }
 const signOutPass = () => {
@@ -32,14 +32,15 @@ const signOutPass = () => {
   }
 
 const onChangePasswordPass = () => {
-    $('#change-password-form').hide()
+    $('#change-password-form').show()
     $('#board').hide()
     $('#game-update').hide()
-    $('#game-index').hide()
-    $('#game-start').hide()
+    $('#game-index').show()
+    $('#game-start').show()
     $('#change-password-form').trigger('reset')
-    $('#sign-in-form').show()
+    $('#sign-in-form').hide()
     $('#message').text('Changed password successfully')
+    $('#game-index').show().text('Game\'s Played')
 
 }
 const signUpFail = (res) => {

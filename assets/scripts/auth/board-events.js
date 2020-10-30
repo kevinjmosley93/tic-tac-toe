@@ -48,7 +48,8 @@ const resetBtnClick = () => {
     $('#game-message').text('')
     $('#board').hide()
     $('#game-start').show()
-    $('#game-index').hide()
+    $('#game-index').show()
+    $('#change-password-form').show()
 }
 
 // If X wins
