@@ -23,6 +23,7 @@ const signInPass = (res) => {
 }
 const signOutPass = () => {
     store.user = null
+    $('#games-played-message').text('')
     $('#game-message').text('')
     $('#message').text('Thanks for playing')
     $('#change-password-form').hide()
@@ -36,6 +37,7 @@ const signOutPass = () => {
 
 const signOutBtnPass = () => {
     store.user = null
+    $('#games-played-message').text('')
     $('#game-message').text('')
     $('#message').text('Thanks for playing')
     $('#change-password-form').hide()
@@ -58,6 +60,7 @@ const onChangePasswordPass = () => {
     $('#message').text('Changed password successfully, Start a New Game!')
     $('#game-index').show().text('Game\'s Played')
     $('#sign_out_btn').show()
+    $('#games-played-message').text('')
 
 }
 const signUpFail = () => {
